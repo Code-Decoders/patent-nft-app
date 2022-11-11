@@ -1,4 +1,5 @@
 import React from 'react'
+import { global } from 'styled-jsx/css'
 import styles from '../styles/Card.module.css'
 
 const Card = () => {
