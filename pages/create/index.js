@@ -13,14 +13,14 @@ const Create = () => {
 
 
     const handleChange = (e) => {
-        const {name, value} = e.currentTarget;
+        const { name, value } = e.currentTarget;
         setState(val => { return { ...val, [name]: value } });
     }
     return (
         <div className={styles.container}>
             <div className={styles.editdetails}>
                 <div className={styles.label}>Title</div>
-                <input className={styles.input} name="title" value={state.title} onChange={handleChange} maxLength={20}/>
+                <input className={styles.input} name="title" value={state.title} onChange={handleChange} maxLength={20} />
                 <div className={styles.label}>Category</div>
                 <select className={styles.input} name="category" value={state.category} onChange={handleChange}>
                     {
@@ -28,7 +28,8 @@ const Create = () => {
                     }
                 </select>
                 <div className={styles.label}>Description</div>
-                <textarea className={styles.input} style={{ height: '220px', resize: 'vertical', padding: '20px' }} name="description" onChange={handleChange} />
+                <textarea className={styles.input} style={{ height: '190px', resize: 'vertical', padding: '20px' }} name="description" onChange={handleChange} />
+                <div className={styles.button}>Mint</div>
             </div>
             <div className={styles.unityground}>
                 <video className={styles.video} src="http://localhost:3000/videos/demo.mp4" autoplay="true"

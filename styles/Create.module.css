@@ -35,3 +35,16 @@
 .video {
     width: 100%;
 }
+
+.button {
+    background: var(--linear-gradient);
+    font-size: 19px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px;
+    user-select: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+}
