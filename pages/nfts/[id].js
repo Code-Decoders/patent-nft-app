@@ -22,7 +22,7 @@ const NFTPage = () => {
                 </p>
                 <div className={styles.offer}>Latest Offer: 3.48 ETH </div>
                 <div className={styles.offer}>Highest Bidder: Daq</div>
-                {address == '' ? <div className={styles.bidplace}>
+                {address == 'Daq' ? <div className={styles.bidplace}>
                     <input type={'number'} className={styles.amount} min={3.48} value={offer} onChange={(e) => {
                         setOffer(e.currentTarget.value)
                     }} />

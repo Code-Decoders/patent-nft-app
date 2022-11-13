@@ -20,7 +20,7 @@ const Create = () => {
         <div className={styles.container}>
             <div className={styles.editdetails}>
                 <div className={styles.label}>Title</div>
-                <input className={styles.input} name="title" value={state.title} onChange={handleChange} maxLength={50}/>
+                <input className={styles.input} name="title" value={state.title} onChange={handleChange} maxLength={20}/>
                 <div className={styles.label}>Category</div>
                 <select className={styles.input} name="category" value={state.category} onChange={handleChange}>
                     {
