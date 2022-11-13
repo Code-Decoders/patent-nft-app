@@ -1,6 +1,7 @@
 .container {
   display: flex;
   gap: 0 24px;
+  padding: 20px 0;
 }
 
 .video {
@@ -16,23 +17,29 @@
 
 .title {
   font-family: "DM Mono", monospace;
-  font-size: 19px;
+  font-size: 60px;
   font-weight: 500;
   margin-bottom: 4px;
+}
+
+.description {
+  font-size: 19px;
+  font-family: 'DM Mono', monospace;
+  margin-bottom: 12px;
 }
 
 .creator {
   font-family: "DM Mono", monospace;
   font-size: 16px;
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 .offer {
   font-family: "DM Mono", monospace;
   font-size: 13px;
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: 24px;
 }
 
 .owner {
@@ -40,4 +47,33 @@
   width: 50px;
   border-radius: 50%;
   object-fit: contain;
+}
+
+.amount {
+  background: var(--glass);
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  user-select: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.bidplace {
+  display:  flex;
+  gap: 0 20px;
+  align-items: center;
+}
+
+.button {
+  background: var(--linear-gradient);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  border-radius: 5px;
 }

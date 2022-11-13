@@ -5,13 +5,13 @@ const Footer = () => {
     return (
         <div className={styles.container}>
             <div style={{ flex: 1 }}>
-                <img src="images/Logo.png" />
+                <img src="http://localhost:3000/images/Logo.png" />
                 <div className={styles.text}>Unique NFTs Marketplace. rare and authentic <br />digital creation</div>
                 <div className={styles.social}>
-                    <img src="images/fb.svg" />
-                    <img src="images/discord.svg" />
-                    <img src="images/instagram.svg" />
-                    <img src="images/yt.svg" />
+                    <img src="http://localhost:3000/images/fb.svg" />
+                    <img src="http://localhost:3000/images/discord.svg" />
+                    <img src="http://localhost:3000/images/instagram.svg" />
+                    <img src="http://localhost:3000/images/yt.svg" />
                 </div>
             </div>
             <div className={styles.actionColumn}>

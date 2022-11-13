@@ -5,7 +5,7 @@ import styles from '../styles/Navbar.module.css'
 const Navbar = () => {
     return (
         <div className={styles.container}>
-            <Link href="/"><img src='images/Logo.png' className={styles.logo} /></Link>
+            <Link href="/"><img src='http://localhost:3000/images/Logo.png' className={styles.logo} /></Link>
             <div className={styles.menu}>
                 <div className={styles.menuitem} onClick={() => {
                     if (window.location.pathname === '/') {
@@ -17,7 +17,7 @@ const Navbar = () => {
                 <Link href={'/under'}><div className={styles.menuitem}>Stats</div></Link>
                 <Link href={'/under'}><div className={styles.menuitem}>Resources</div></Link>
                 <Link href={'/under'}><div className={styles.menuitem}>Artists</div></Link>
-                <Link href={'/under'}><div className={styles.menuitem}>Create</div></Link>
+                <Link href={'/create'}><div className={styles.menuitem}>Create</div></Link>
             </div>
             <div className={styles.button}>
                 Connect Wallet

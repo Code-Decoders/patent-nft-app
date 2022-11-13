@@ -1,23 +1,26 @@
+import Link from 'next/link'
 import React from 'react'
 import { global } from 'styled-jsx/css'
 import styles from '../styles/Card.module.css'
 
-const Card = () => {
+const Card = ({ id }) => {
     return (
-        <div className={styles.container}>
-            <img src={'/images/Image.png'} className={styles.image} />
-            <div className={styles.details}>
-                <div>
-                    <div className={styles.title}>Rappu Apes</div>
-                    <div className={styles.creator}>Created by Daq</div>
-                    <div className={styles.offer}>Latest Offer</div>
-                    <div className={styles.offer}>3.48 ETH</div>
-                </div>
-                <div className={styles.right}>
-                    <img className={styles.owner} src='images/image.png'/>
+        <Link href={'/nfts/' + id}>
+            <div className={styles.container}>
+                <img src={'/images/Image.png'} className={styles.image} />
+                <div className={styles.details}>
+                    <div>
+                        <div className={styles.title}>Rappu Apes</div>
+                        <div className={styles.creator}>Created by Daq</div>
+                        <div className={styles.offer}>Latest Offer</div>
+                        <div className={styles.offer}>3.48 ETH</div>
+                    </div>
+                    <div className={styles.right}>
+                        <img className={styles.owner} src='images/image.png' />
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

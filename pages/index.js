@@ -4,17 +4,17 @@ import React from 'react';
 import Card from '../components/card';
 import TabButton from '../components/tab_button'
 import styles from '../styles/Home.module.css'
+export const category = [
+  'Music',
+  'Art',
+  'Sport',
+  'Photography',
+  'VR',
+  'Videos',
+  'More',
+];
 
 export default function Home() {
-  const tabs = [
-    'Music',
-    'Art',
-    'Sport',
-    'Photography',
-    'VR',
-    'Videos',
-    'More',
-  ];
 
   const [activeTab, setActiveTab] = React.useState(0);
 
@@ -41,13 +41,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <img src="images/homepage.png" />
+        <img src="images/homepage.png" className={styles.pic}/>
       </div>
       <div className={styles.Explore} id={'Explore'} style={{ scrollMarginTop: '200px' }}>
         <div className={styles.title}>NFT Marketplace</div>
         <div className={styles.subtitle}>Spotlight: Projects You Would Love</div>
         <div className={styles.tabs}>
-          {tabs.map((tab, index) => {
+          {category.map((tab, index) => {
             return <TabButton name={tab} key={index} active={activeTab == index} onClick={() => {
               setActiveTab(index);
             }} />
@@ -55,7 +55,7 @@ export default function Home() {
         </div>
         <div className={styles.grid}>
           {Array(6).fill(0).map((_, index) => {
-            return <Card key={index} />
+            return <Card key={index} id={index}/>
           })}
         </div>
       </div>
