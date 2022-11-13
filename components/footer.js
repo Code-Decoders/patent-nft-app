@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import styles from '../styles/Footer.module.css'
 
@@ -15,21 +16,27 @@ const Footer = () => {
                 </div>
             </div>
             <div className={styles.actionColumn}>
-                <div className={styles.action}>Marketplace</div>
-                <div className={styles.action}>Explore</div>
-                <div className={styles.action}>Stats</div>
-                <div className={styles.action}>Create</div>
+                <Link href="/under"><div className={styles.action}>Marketplace</div></Link>
+                <Link href="/under"><div className={styles.action}>Explore</div></Link>
+                <Link href="/under"><div className={styles.action}>Stats</div></Link>
+                <Link href="/under"><div className={styles.action}>Create</div></Link>
             </div>
             <div className={styles.actionColumn}>
-                <div className={styles.action}>Resources</div>
-                <div className={styles.action}>Blogs</div>
-                <div className={styles.action}>Help Center</div>
-                <div className={styles.action}>Partners</div>
+                <Link href="/under"><div className={styles.action}>Resources</div></Link>
+                <Link href="/under"><div className={styles.action}>Blogs</div></Link>
+                <Link href="/under"><div className={styles.action}>Help Center</div></Link>
+                <Link href="/under"><div className={styles.action}>Partners</div></Link>
             </div>
             <div className={styles.actionColumn}>
-                <div className={styles.action}>About Us</div>
-                <div className={styles.action}>Career</div>
-                <div className={styles.action}>Support</div>
+                <div className={styles.action} onClick={() => {
+                    if (window.location.pathname === '/') {
+                        document.getElementById('About').scrollIntoView();
+                    } else {
+                        window.location.href = '/#About';
+                    }
+                }}>About Us</div>
+                <Link href="/under"><div className={styles.action}>Career</div></Link>
+                <Link href="/under"><div className={styles.action}>Support</div></Link>
             </div>
         </div>
     )

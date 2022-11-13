@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react';
 import Card from '../components/card';
 import TabButton from '../components/tab_button'
@@ -22,7 +23,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className={styles.about}>
+      <div id={'About'} className={styles.about} style={{ scrollMarginTop: '200px' }}>
         <div className={styles.about_text}>
           <div className={styles.about_title}>Collect Super Unique Digital Artworks </div>
           <div className={styles.about_description}>QikNFT is the world’s largest NFT marketplace with over 45 thousand aritist.</div>
@@ -41,7 +42,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <img src="images/homepage.png" className={styles.pic}/>
+        <img src="images/homepage.png" className={styles.pic} />
       </div>
       <div className={styles.Explore} id={'Explore'} style={{ scrollMarginTop: '200px' }}>
         <div className={styles.title}>NFT Marketplace</div>
@@ -55,7 +56,7 @@ export default function Home() {
         </div>
         <div className={styles.grid}>
           {Array(6).fill(0).map((_, index) => {
-            return <Card key={index} id={index}/>
+            return <Card key={index} id={index} />
           })}
         </div>
       </div>
@@ -80,15 +81,15 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.action}>
-          <div className={styles.button}>Create Now</div>
-          <div className={`${styles.button} ${styles.outlined}`}>Watch Videos</div>
+          <Link href="/create"><div className={styles.button}>Create Now</div></Link>
+          <Link href="/"><div className={`${styles.button} ${styles.outlined}`}>Watch Videos</div></Link>
         </div>
       </div>
 
       <div className={styles.card} style={{ marginBottom: '40px' }}>
         <div className={styles['card-title']} style={{ fontSize: '33px' }}>Join Our Community</div>
         <div className={styles['card-subtitle']} style={{ marginBottom: '50px' }}>Meet the team, artist and collectors of platform update,annoucement and more</div>
-        <div className={styles.button}>Take Me to Discord</div>
+        <Link href=""><div className={styles.button}>Take Me to Discord</div></Link>
       </div>
     </div>
   )
