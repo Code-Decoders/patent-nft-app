@@ -7,7 +7,7 @@ const Card = ({ id }) => {
     return (
         <Link href={'/nfts/' + id}>
             <div className={styles.container}>
-                <img src={'/images/Image.png'} className={styles.image} />
+                <img src={'https://bafkreifiymh7pl26kanucedwe4fpvp5q4yb77iygtxxwrkmmvppcx5tkwe.ipfs.nftstorage.link/'} className={styles.image} />
                 <div className={styles.details}>
                     <div>
                         <div className={styles.title}>Rappu Apes</div>

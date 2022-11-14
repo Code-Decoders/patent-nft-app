@@ -9,23 +9,23 @@ import "./TRC721Metadata.sol";
   {
       
     using Counters for Counters.Counter;
-    Counters.Counter  ItemsSold ; // Total Items Sold till now 
-    Counters.Counter  TotalItems ; // Total number of NFTS Items 
-    uint256 public MinimumListingPrice = 1 trx; 
-    address Owner;
+    Counters.Counter  itemsSold ; // Total Items Sold till now 
+    Counters.Counter  totalItems ; // Total number of NFTS Items 
+    uint256 public minimumListingPrice = 1 trx; 
+    address owner;
       
-     mapping(uint256 => NFTItem) private TokenIdToNFTItem; // mapping of int to struct 
-     mapping(string => uint256) private Categories;
+     mapping(uint256 => Patent) private tokenIdToPatent; // mapping of int to struct 
+     mapping(string => uint256) private categories;
      mapping(address=>uint256) public balances;
     
-    struct NFTItem {
+    struct Patent {
       uint256 tokenId;
       string TokenURI;
       string description;
       string category;
-      address  seller;
-      address   owner;
-      address payable current_bider;
+      address seller;
+      address owner;
+      address payable currentBider;
       uint256 price;
       bool sold;
     }
@@ -33,39 +33,34 @@ import "./TRC721Metadata.sol";
       
       constructor() public TRC721Metadata("NFTPatent","NFTP")
       {
-          Owner = msg.sender;
+          owner = msg.sender;
       }
       
       
       modifier onlyOwner()
     {
-      require(msg.sender == Owner,"Only Owner can call this function");
+      require(msg.sender == owner,"Only Owner can call this function");
       _;  
     }
     
     
     
-    function UpdateListingPrice(uint256 _price) public onlyOwner
+    function setMinimumListingPrice(uint256 _price) public onlyOwner
    {
-      MinimumListingPrice = _price;
-   }
-
-     function GetListingPrice() public view returns(uint256)
-   {
-       return MinimumListingPrice;
+      minimumListingPrice = _price;
    }
 
 
-    function MintNFT(uint256 _price,string memory _TokenURI,string memory  _category,string memory _description) public  
+    function mint(uint256 _price,string memory _tokenURI,string memory  _category,string memory _description) public  
     {
-       require(_price >=MinimumListingPrice,"The price should be atleast minimum");
-       TotalItems.increment();
-        uint256 newItemId = TotalItems.current();
+       require(_price >=minimumListingPrice,"The price should be atleast minimum");
+       totalItems.increment();
+        uint256 newItemId = totalItems.current();
         _mint(msg.sender, newItemId);
-        _setTokenURI(newItemId, _TokenURI);
-       TokenIdToNFTItem[TotalItems.current()] = NFTItem(
-            TotalItems.current(),
-            _TokenURI,
+        _setTokenURI(newItemId, _tokenURI);
+       tokenIdToPatent[totalItems.current()] = Patent(
+            totalItems.current(),
+            _tokenURI,
             _description,
             _category,
              msg.sender,
@@ -74,20 +69,20 @@ import "./TRC721Metadata.sol";
             _price,
             false
        );
-       Categories[_category]+=1;
+       categories[_category]+=1;
        balances[msg.sender]+=1;
     }
     
     
-        function GetAll() public view returns(NFTItem[] memory)
+        function getAll() public view returns(Patent[] memory)
     {
-            uint256 _TotalItems = TotalItems.current() ;
+            uint256 _totalItems = totalItems.current() ;
             uint256 currentIndex = 0;
 
-            NFTItem[] memory items = new NFTItem[](_TotalItems);
-            for (uint256 i = 0; i < TotalItems.current(); i++) {
+            Patent[] memory items = new Patent[](_totalItems);
+            for (uint256 i = 0; i < totalItems.current(); i++) {
              uint256 currentId = i + 1;
-             NFTItem storage currentItem = TokenIdToNFTItem[currentId];
+             Patent storage currentItem = tokenIdToPatent[currentId];
              items[currentIndex] = currentItem;
              currentIndex += 1;
       }
@@ -95,17 +90,17 @@ import "./TRC721Metadata.sol";
     }
 
 
-      function GetAccordingToCategory(string memory _category) public view returns(NFTItem[] memory)
+      function getFromCategory(string memory _category) public view returns(Patent[] memory)
       {
-           uint256 _TotalItems = Categories[_category];
+           uint256 _totalItems = categories[_category];
            uint256 currentIndex = 0;
-           NFTItem[] memory items = new NFTItem[](_TotalItems);
-           for(uint256 i=0;i< TotalItems.current();i++)
+           Patent[] memory items = new Patent[](_totalItems);
+           for(uint256 i=0;i< totalItems.current();i++)
            {
                uint256 currentId = i + 1;
-               if(keccak256(abi.encodePacked(TokenIdToNFTItem[currentId].category))== keccak256(abi.encodePacked((_category))))
+               if(keccak256(abi.encodePacked(tokenIdToPatent[currentId].category))== keccak256(abi.encodePacked((_category))))
                {
-                    NFTItem storage currentItem = TokenIdToNFTItem[currentId];
+                    Patent storage currentItem = tokenIdToPatent[currentId];
                     items[currentIndex] = currentItem;
                     currentIndex += 1;
                }
@@ -114,18 +109,18 @@ import "./TRC721Metadata.sol";
       }
     
     
-      function GetAccordingToAddress(address _user) public view returns(NFTItem[] memory )
+      function getFromAddress(address _user) public view returns(Patent[] memory )
       {
             require(address(this) != _user,"User shouldnot be the contract address");
             uint256 currentIndex = 0;
-            uint256 _TotalItems = balances[_user];
-            NFTItem[] memory items = new NFTItem[](_TotalItems);
+            uint256 _totalItems = balances[_user];
+            Patent[] memory items = new Patent[](_totalItems);
             
-            for(uint256 i=0;i< TotalItems.current();i++)
+            for(uint256 i=0;i< totalItems.current();i++)
             {
-                if(TokenIdToNFTItem[i+1].owner == _user || TokenIdToNFTItem[i+1].seller == _user)
+                if(tokenIdToPatent[i+1].owner == _user || tokenIdToPatent[i+1].seller == _user)
                 {
-                    NFTItem storage currentItem = TokenIdToNFTItem[currentIndex];
+                    Patent storage currentItem = tokenIdToPatent[currentIndex];
                     items[currentIndex] = currentItem;
                     currentIndex += 1;
                 }
@@ -137,51 +132,51 @@ import "./TRC721Metadata.sol";
       }
       
       
-      function GetAccordingToTokenId(uint256 _tokenid) public view returns(NFTItem memory)
+      function getFromTokenId(uint256 _tokenid) public view returns(Patent memory)
       {
-            require(_tokenid > 0  && _tokenid <=TotalItems.current(),"Token Id doesnt exist");
-            return TokenIdToNFTItem[_tokenid];
+            require(_tokenid > 0  && _tokenid <=totalItems.current(),"Token Id doesnt exist");
+            return tokenIdToPatent[_tokenid];
       }
       
-       function MakeOffer(uint256 _tokenId) public payable
+       function makeOffer(uint256 _tokenId) public payable
     {
-       require(_tokenId > 0  && _tokenId <=TotalItems.current(),"Token Id doesnt exist");
-       require(msg.value > TokenIdToNFTItem[_tokenId].price,"Bid is not enough");
-       if(TokenIdToNFTItem[_tokenId].current_bider != address(0))
+       require(_tokenId > 0  && _tokenId <=totalItems.current(),"Token Id doesnt exist");
+       require(msg.value > tokenIdToPatent[_tokenId].price,"Bid is not enough");
+       if(tokenIdToPatent[_tokenId].currentBider != address(0))
        {
-         TokenIdToNFTItem[_tokenId].current_bider.send(TokenIdToNFTItem[_tokenId].price);
+         tokenIdToPatent[_tokenId].currentBider.send(tokenIdToPatent[_tokenId].price);
        
        }
-       TokenIdToNFTItem[_tokenId].current_bider = msg.sender;
-       TokenIdToNFTItem[_tokenId].price = msg.value;
+       tokenIdToPatent[_tokenId].currentBider = msg.sender;
+       tokenIdToPatent[_tokenId].price = msg.value;
     }
     
     
-      function CancelOffer(uint256 _tokenId) public 
+      function cancelOffer(uint256 _tokenId) public 
       {
-         require(_tokenId > 0  && _tokenId <=TotalItems.current(),"Token Id doesnt exist");
-         require(msg.sender == TokenIdToNFTItem[_tokenId].current_bider,"Only current_bider can cancel the offer");
-         TokenIdToNFTItem[_tokenId].current_bider.send(TokenIdToNFTItem[_tokenId].price);
-         TokenIdToNFTItem[_tokenId].current_bider = address(0);
-         TokenIdToNFTItem[_tokenId].price = MinimumListingPrice;
+         require(_tokenId > 0  && _tokenId <=totalItems.current(),"Token Id doesnt exist");
+         require(msg.sender == tokenIdToPatent[_tokenId].currentBider,"Only currentBider can cancel the offer");
+         tokenIdToPatent[_tokenId].currentBider.send(tokenIdToPatent[_tokenId].price);
+         tokenIdToPatent[_tokenId].currentBider = address(0);
+         tokenIdToPatent[_tokenId].price = minimumListingPrice;
       }
     
     
       
-        function ApproveNFTToBeSold(uint256 _tokenId) public 
+        function approveOffer(uint256 _tokenId) public 
     {
-       require(_tokenId > 0  && _tokenId <=TotalItems.current(),"Token Id doesnt exist");
-       require(msg.sender == TokenIdToNFTItem[_tokenId].seller,"Only Seller can approve and sell the NFT");
-        TokenIdToNFTItem[_tokenId].owner= TokenIdToNFTItem[_tokenId].current_bider;
-       _transferFrom(msg.sender,TokenIdToNFTItem[_tokenId].owner,_tokenId);
-       msg.sender.send(TokenIdToNFTItem[_tokenId].price );
-       TokenIdToNFTItem[_tokenId].seller = address(0);
-       TokenIdToNFTItem[_tokenId].current_bider = address(0);
-       TokenIdToNFTItem[_tokenId].price = 0 trx;
-       TokenIdToNFTItem[_tokenId].sold = true;
-       ItemsSold.increment();
+       require(_tokenId > 0  && _tokenId <=totalItems.current(),"Token Id doesnt exist");
+       require(msg.sender == tokenIdToPatent[_tokenId].seller,"Only Seller can approve and sell the NFT");
+        tokenIdToPatent[_tokenId].owner= tokenIdToPatent[_tokenId].currentBider;
+       _transferFrom(msg.sender,tokenIdToPatent[_tokenId].owner,_tokenId);
+       msg.sender.send(tokenIdToPatent[_tokenId].price );
+       tokenIdToPatent[_tokenId].seller = address(0);
+       tokenIdToPatent[_tokenId].currentBider = address(0);
+       tokenIdToPatent[_tokenId].price = 0 trx;
+       tokenIdToPatent[_tokenId].sold = true;
+       itemsSold.increment();
        balances[msg.sender]-=1;
-       balances[TokenIdToNFTItem[_tokenId].owner]+=1;
+       balances[tokenIdToPatent[_tokenId].owner]+=1;
     }
       
     

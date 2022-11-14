@@ -4,6 +4,7 @@ import styles from "../../styles/Create.module.css";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import recorder from "react-canvas-recorder";
 import { useScreenshot, createFileName } from "use-react-screenshot";
+import { uploadMetadata } from "../../lib/uploadMetadata";
 
 const Create = () => {
   const [state, setState] = useState({
@@ -13,7 +14,6 @@ const Create = () => {
   });
 
   const ref = useRef();
-  const ref1 = useRef();
 
   const { unityProvider, sendMessage } = useUnityContext({
     loaderUrl: "Build/Build.loader.js",
@@ -44,36 +44,31 @@ const Create = () => {
     canvas.width = 350;
     canvas.height = 350;
     await new Promise((resolve) => setTimeout(resolve, 100));
-
+    
     let ctx = canvas.getContext("2d");
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-    let image = canvas.toDataURL("image/jpeg");
-    downloadURI(image, "test.jpeg");
+    
+    let image = canvas.toDataURL("image/png");
     console.log(image);
     canvas.remove();
     video.remove();
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    return image
   };
+
   const handleSubmit = async () => {
-      recorder.createStream(ref.current);
-      recorder.start();
-      
-      await new Promise((resolve) => setTimeout(resolve, 4450));
-      recorder.stop();
-      const file = recorder.save();
-      console.log(file);
-      downloadURI(URL.createObjectURL(file), "test.webm");
-      getImage(URL.createObjectURL(file));
+    recorder.createStream(ref.current);
+    recorder.start();
+
+    await new Promise((resolve) => setTimeout(resolve, 4450));
+    recorder.stop();
+    const file = recorder.save();
+    console.log(file);
+    const image = await getImage(URL.createObjectURL(file));
+
+    uploadMetadata(state.title, state.category, state.description, image, file);
   };
-  function downloadURI(uri, name) {
-    console.log(uri);
-    var link = document.createElement("a");
-    link.download = name;
-    link.href = uri;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
+  
   return (
     <div className={styles.container}>
       <div className={styles.editdetails}>
@@ -107,7 +102,7 @@ const Create = () => {
           Mint
         </div>
       </div>
-      <div className={styles.unityground} ref={ref1}>
+      <div className={styles.unityground}>
         <Unity
           unityProvider={unityProvider}
           className={styles.unity}
