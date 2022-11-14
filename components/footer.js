@@ -7,7 +7,7 @@ const Footer = () => {
         <div className={styles.container}>
             <div style={{ flex: 1 }}>
                 <img src="https://pat3nt.netlify.app/images/Logo.png" className={styles.logo}/>
-                <div className={styles.text}>Unique NFTs Marketplace. rare and authentic <br />digital creation</div>
+                <div className={styles.text}>Unique Patent NFTs Marketplace. rare and authentic <br />digital ideas</div>
                 <div className={styles.social}>
                     <img src="https://pat3nt.netlify.app/images/fb.svg" />
                     <img src="https://pat3nt.netlify.app/images/discord.svg" />
