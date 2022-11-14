@@ -26,6 +26,7 @@
   font-size: 19px;
   font-family: 'DM Mono', monospace;
   margin-bottom: 12px;
+  white-space: pre-wrap;
 }
 
 .creator {

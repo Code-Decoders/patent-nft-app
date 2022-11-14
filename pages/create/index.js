@@ -3,8 +3,9 @@ import { category } from "..";
 import styles from "../../styles/Create.module.css";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import recorder from "react-canvas-recorder";
-import { useScreenshot, createFileName } from "use-react-screenshot";
 import { uploadMetadata } from "../../lib/uploadMetadata";
+import { toast } from "react-toastify";
+import { mint } from "../../lib/tronAdaptor";
 
 const Create = () => {
   const [state, setState] = useState({
@@ -44,19 +45,19 @@ const Create = () => {
     canvas.width = 350;
     canvas.height = 350;
     await new Promise((resolve) => setTimeout(resolve, 100));
-    
+
     let ctx = canvas.getContext("2d");
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    
+
     let image = canvas.toDataURL("image/png");
     console.log(image);
     canvas.remove();
     video.remove();
     await new Promise((resolve) => setTimeout(resolve, 100));
-    return image
+    return image;
   };
 
-  const handleSubmit = async () => {
+  const upload = async () => {
     recorder.createStream(ref.current);
     recorder.start();
 
@@ -66,9 +67,33 @@ const Create = () => {
     console.log(file);
     const image = await getImage(URL.createObjectURL(file));
 
-    uploadMetadata(state.title, state.category, state.description, image, file);
+    return await uploadMetadata(
+      state.title,
+      state.category,
+      state.description,
+      image,
+      file
+    );
   };
+
   
+  const handleMinting = async (cid) => {
+    await mint("ipfs://" + cid, state.category);
+  };
+  const handleSubmit = async () => {
+    const cid = await toast.promise(upload, {
+      pending: "Uploading Metadata",
+      success: "Metadata Uploaded",
+      error: "Error Uploading Metadata",
+    });
+
+    await toast.promise(handleMinting(cid), {
+      pending: "Minting NFT",
+      success: "NFT Minted",
+      error: "Error Minting NFT",
+    });
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.editdetails}>

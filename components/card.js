@@ -1,27 +1,48 @@
-import Link from 'next/link'
-import React from 'react'
-import { global } from 'styled-jsx/css'
-import styles from '../styles/Card.module.css'
+import Link from "next/link";
+import React, { useEffect } from "react";
+import getIPFS from "../lib/getIPFS";
+import { parseAddress, parseUint } from "../lib/tronAdaptor";
+import styles from "../styles/Card.module.css";
 
-const Card = ({ id }) => {
-    return (
-        <Link href={'/nfts/' + id}>
-            <div className={styles.container}>
-                <img src={'https://bafkreifiymh7pl26kanucedwe4fpvp5q4yb77iygtxxwrkmmvppcx5tkwe.ipfs.nftstorage.link/'} className={styles.image} />
-                <div className={styles.details}>
-                    <div>
-                        <div className={styles.title}>Rappu Apes</div>
-                        <div className={styles.creator}>Created by Daq</div>
-                        <div className={styles.offer}>Latest Offer</div>
-                        <div className={styles.offer}>3.48 ETH</div>
-                    </div>
-                    <div className={styles.right}>
-                        <img className={styles.owner} src='images/image.png' />
-                    </div>
-                </div>
-            </div>
-        </Link>
-    )
-}
+const Card = ({ nft }) => {
+  const [metadata, setMetadata] = React.useState(null);
 
-export default Card
+  const getMetadata = async () => {
+    const data = await fetch(getIPFS(nft.tokenURI));
+    const json = await data.json();
+    setMetadata(json);
+  };
+  useEffect(() => {
+    getMetadata();
+  }, []);
+
+  if (!metadata) {
+    return <div></div>;
+  }
+  return (
+    <Link href={"/nfts/" + nft.tokenId}>
+      <div className={styles.container}>
+        <video
+          src={getIPFS(metadata.animation_url)}
+          className={styles.image}
+          autoplay="true"
+          muted="muted"
+          loop
+        />
+        <div className={styles.details}>
+          <div>
+            <div className={styles.title}>{metadata.name}</div>
+            <div className={styles.creator}>Created by {parseAddress(nft.owner).slice(0,10)}...</div>
+            <div className={styles.offer}>Latest Offer</div>
+            <div className={styles.offer}>{parseUint(nft.price)} TRX</div>
+          </div>
+          <div className={styles.right}>
+            <img className={styles.owner} src="images/image.png" />
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+export default Card;
