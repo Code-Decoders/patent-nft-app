@@ -55,11 +55,11 @@ export default function Home() {
           <div className={styles.stats}>
             <div className={styles.stat}>
               <div className={styles.stat_title}>10 +</div>
-              <div className={styles.stat_description}>Patent</div>
+              <div className={styles.stat_description}>Patents</div>
             </div>
             <div className={styles.stat}>
               <div className={styles.stat_title}>7 +</div>
-              <div className={styles.stat_description}>Developer</div>
+              <div className={styles.stat_description}>Developers</div>
             </div>
             <div className={styles.stat}>
               <div className={styles.stat_title}>3 +</div>
@@ -112,14 +112,14 @@ export default function Home() {
           </div>
           <div className={styles.card}>
             <img src={"images/upload.svg"} />
-            <div className={styles["card-title"]}>Make Offer</div>
+            <div className={styles["card-title"]}>Make Offers</div>
             <div className={styles["card-subtitle"]}>
               Make offer to buy an idea or patent as an NFT
             </div>
           </div>
           <div className={styles.card}>
             <img src={"images/listing.svg"} />
-            <div className={styles["card-title"]}>Approve Offer</div>
+            <div className={styles["card-title"]}>Approve Offers</div>
             <div className={styles["card-subtitle"]}>
               Approve the offer and sell your idea as an NFT
             </div>
@@ -148,9 +148,9 @@ export default function Home() {
           Meet the team, artist and collectors of platform update,annoucement
           and more
         </div>
-        <Link href="">
+        <a href="https://discord.gg/BBKXsgJy">
           <div className={styles.button}>Take Me to Discord</div>
-        </Link>
+        </a>
       </div>
     </div>
   );
