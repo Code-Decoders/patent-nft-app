@@ -10,7 +10,9 @@
 }
 
 .unityground {
-    flex: 1
+    flex: 1;
+    display: flex;
+    justify-content: end;
 }
 
 .label {
@@ -32,7 +34,7 @@
     margin-bottom: 20px;
 }
 
-.video {
+.unity {
     width: 100%;
 }
 
