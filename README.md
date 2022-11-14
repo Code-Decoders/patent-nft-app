@@ -38,13 +38,13 @@ Youtube Video Demo
 **Backend:** Solidity, IPFS, TRON Blockchain
 ## Roadmap
 
-- [x]  Use AI for removing the spam ideas or dirty content.   
+- [ ]  Use AI for removing the spam ideas or dirty content.   
 - [ ]  Become a Standard NFT Marketplace.
 - [ ]  OpensSea.io integration.
 - [ ]  Security Enhancements/ Auditing in the Smart Contract.
 - [ ]  More upgrades and abilities.
-- [ ]  
-- [ ]  
+- [ ]  NFT Swapping Ideas. 
+- [ ]  Expanding it to non Web 3.0 companies and other industries
 
 
 ## Run Locally
