@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
                 <Footer />
             </main>
             <footer className={styles.footer}>
-                <div className={styles.text}>© 2021 NFT Marketplace. All rights reserved</div>
+                <div className={styles.text}>© 2022 NFT Marketplace. All rights reserved</div>
             </footer>
         </div>
     )
