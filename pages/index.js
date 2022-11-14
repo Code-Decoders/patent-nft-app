@@ -47,24 +47,23 @@ export default function Home() {
       >
         <div className={styles.about_text}>
           <div className={styles.about_title}>
-            Collect Super Unique Digital Artworks{" "}
+            Showcase Super Unique Digital Ideas{" "}
           </div>
           <div className={styles.about_description}>
-            QikNFT is the world’s largest NFT marketplace with over 45 thousand
-            aritist.
+            Pat3nt is the world’s first patent NFT marketplace.
           </div>
           <div className={styles.stats}>
             <div className={styles.stat}>
-              <div className={styles.stat_title}>95k +</div>
-              <div className={styles.stat_description}>Artwork</div>
+              <div className={styles.stat_title}>10 +</div>
+              <div className={styles.stat_description}>Patents</div>
             </div>
             <div className={styles.stat}>
-              <div className={styles.stat_title}>45k +</div>
-              <div className={styles.stat_description}>Artist</div>
+              <div className={styles.stat_title}>7 +</div>
+              <div className={styles.stat_description}>Developers</div>
             </div>
             <div className={styles.stat}>
-              <div className={styles.stat_title}>60k +</div>
-              <div className={styles.stat_description}>Auction</div>
+              <div className={styles.stat_title}>3 +</div>
+              <div className={styles.stat_description}>Offers</div>
             </div>
           </div>
         </div>
@@ -106,24 +105,23 @@ export default function Home() {
         <div className={styles.workflow}>
           <div className={styles.card}>
             <img src={"images/create.svg"} />
-            <div className={styles["card-title"]}>Create Artworks</div>
+            <div className={styles["card-title"]}>Create Ideas</div>
             <div className={styles["card-subtitle"]}>
-              Create your collection and social links and more
+              Create your own ideas and patent them
             </div>
           </div>
           <div className={styles.card}>
             <img src={"images/upload.svg"} />
-            <div className={styles["card-title"]}>Upload</div>
+            <div className={styles["card-title"]}>Make Offers</div>
             <div className={styles["card-subtitle"]}>
-              Create your collection and social links and more
+              Make offer to buy an idea or patent as an NFT
             </div>
           </div>
           <div className={styles.card}>
             <img src={"images/listing.svg"} />
-            <div className={styles["card-title"]}>Listing</div>
+            <div className={styles["card-title"]}>Approve Offers</div>
             <div className={styles["card-subtitle"]}>
-              Setup and choose between auction fixed price listing or declining
-              listing
+              Approve the offer and sell your idea as an NFT
             </div>
           </div>
         </div>
@@ -150,9 +148,9 @@ export default function Home() {
           Meet the team, artist and collectors of platform update,annoucement
           and more
         </div>
-        <Link href="">
+        <a href="https://discord.gg/BBKXsgJy">
           <div className={styles.button}>Take Me to Discord</div>
-        </Link>
+        </a>
       </div>
     </div>
   );

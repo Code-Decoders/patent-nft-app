@@ -41,7 +41,7 @@
 .tabs {
   display: flex;
   align-items: center;
-  overflow: scroll;
+  overflow-y: auto;
   gap: 45px;
   margin-bottom: 70px;
 }
