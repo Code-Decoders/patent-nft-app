@@ -106,6 +106,6 @@ If you have any feedback or contact, please reach out to us at maadhav2001@gmail
 
 
 ## Authors
-- [@manikantanynala97] (https://github.com/manikantanynala97)
+- [@manikantanynala97](https://github.com/manikantanynala97)
 - [@Maadhav](https://www.github.com/Maadhav)
 - [@kunal528](https://www.github.com/kunal528)
