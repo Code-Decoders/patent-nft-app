@@ -25,7 +25,7 @@ const Navbar = () => {
     <div className={styles.container}>
       <Link href="/">
         <img
-          src="http://localhost:3000/images/Logo.png"
+          src="https://pat3nt.netlify.app/images/Logo.png"
           className={styles.logo}
         />
       </Link>

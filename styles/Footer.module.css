@@ -9,6 +9,12 @@
 
 }
 
+
+.logo {
+    object-fit: contain;
+    height: 60px;
+}
+
 .action {
     font-size: 19px;
     cursor: pointer;
