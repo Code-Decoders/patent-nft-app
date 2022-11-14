@@ -113,7 +113,7 @@ const Create = () => {
           onChange={handleChange}
         >
           {category.map((e) => (
-            <option value={e}>{e}</option>
+            <option value={e} key={e}>{e}</option>
           ))}
         </select>
         <div className={styles.label}>Description</div>
