@@ -40,7 +40,6 @@
 
 .tabs {
   display: flex;
-  justify-content: center;
   align-items: center;
   overflow: scroll;
   gap: 45px;
