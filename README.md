@@ -1,24 +1,25 @@
-# Trankers
+# Patent-NFT-App
 
-> Trankers is a community-led online "play-and-earn" gaming platform created by CodeDecoders.
+> Patent-NFT-App is a Patent based NFT Marketplace platform created by Code-Decoders.
 
-> Shoot turrets and enemy tanks to increase your score. The more you score the more tokens you will earn.
-> With your earned TRT tokens, upgrade your tanks, buy new tanks and buy extra accessories for your tanks.
+> Mint your Idea as an NFT , Sell your Idea as an NFT and also Buy others Idea as an NFT. 
+
 
  
 ## Features
 
-- Ability to buy new tanks and bullet upgrades
-- All modern browsers supported
-- In Game Token management
-- Simple and fun to play Game
-- Multi-Ownership of NFTs
-- Sort the upgrades based on their popularity, strengths and price
+- Mint an NFT according to the category.
+- Sell an NFT according to the category.
+- Buy an NFT according to the category.
+- Bid an NFT according to the category.
+- See all NFT's in the NFT Marketplace.
+- See all NFT's according to the user address.
+- See all NFT's according to the category.
+- See NFT according to the TokenID.
 
 ## Deployed Smart Contracts
 
-- [The Inventory NFT Token](https://mumbai.polygonscan.com/address/0x9393C1A97B25851D9B5a14447cc7D9cA448a211D)
-- [The TRT In-Game-Token](https://mumbai.polygonscan.com/address/0xB0b64EE64cA57aD1af311Bf5928650FE5a43b981)
+- [The Patent NFT Contract](https://shasta.tronscan.org/#/contract/TNGkTsXSY65qsQimdF2Pk7RHtFFEVKdHCL/code)
 
 ## Demo
 
@@ -34,17 +35,16 @@ Youtube Video Demo
 
 **Frontend:** NEXT.JS, Unity, WebGL, web3.js
 
-**Backend:** Solidity, IPFS
+**Backend:** Solidity, IPFS, TRON Blockchain
 ## Roadmap
 
-- [x]  Player To Earn
-- [x]  Multiple Owner Ownership
-- [ ]  Multiplayer Support like a open-world a arena
-- [ ]  OpensSea.io integration
-- [ ]  Security Enhancements/ Auditing in the Smart Contract
-- [ ]  More upgrades and abilities
-- [ ]  Improve gaming expereince
-- [ ]  Improve UI/UX for the Inventory
+- [x]  Use AI for removing the spam ideas or dirty content.   
+- [ ]  Become a Standard NFT Marketplace.
+- [ ]  OpensSea.io integration.
+- [ ]  Security Enhancements/ Auditing in the Smart Contract.
+- [ ]  More upgrades and abilities.
+- [ ]  
+- [ ]  
 
 
 ## Run Locally
