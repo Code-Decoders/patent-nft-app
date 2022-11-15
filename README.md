@@ -23,7 +23,7 @@
 
 ## Demo
 
-Live Website (https://trankers-web3.netlify.app)
+Live Website (https://pat3nt.netlify.app/)
 
 Youtube Video Demo
 
