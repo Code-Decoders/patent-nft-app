@@ -23,11 +23,11 @@
 
 ## Demo
 
-Live Website (https://trankers-web3.netlify.app)
+Live Website (https://pat3nt.netlify.app/)
 
 Youtube Video Demo
 
-[![Youtube Video](https://img.youtube.com/vi/0HqszfAnO7o/sddefault.jpg)](https://youtu.be/0HqszfAnO7o)
+[![Youtube Video](https://img.youtube.com/vi/KYnxJ5afecY/sddefault.jpg)](https://youtu.be/KYnxJ5afecY)
 
 
 
@@ -43,8 +43,6 @@ Youtube Video Demo
 - [ ]  OpensSea.io integration.
 - [ ]  Security Enhancements/ Auditing in the Smart Contract.
 - [ ]  More upgrades and abilities.
-- [ ]  
-- [ ]  
 
 
 ## Run Locally
@@ -52,13 +50,13 @@ Youtube Video Demo
 Clone the project
 
 ```bash
-  git clone https://github.com/Code-Decoders/trankers
+  git clone https://github.com/Code-Decoders/patent-nft-app
 ```
 
 Go to the project directory
 
 ```bash
-  cd trankers
+  cd patent-nft-app
 ```
 
 Install dependencies
