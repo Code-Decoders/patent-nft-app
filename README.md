@@ -19,7 +19,7 @@
 
 ## Deployed Smart Contracts
 
-- [The Patent NFT Contract](https://shasta.tronscan.org/#/contract/TNGkTsXSY65qsQimdF2Pk7RHtFFEVKdHCL/code)
+- [The Patent NFT Contract](https://shasta.tronscan.org/#/contract/TJU6x2uk4ubGPNdU2boUndCi1VehQYiLdU/code)
 
 ## Demo
 
