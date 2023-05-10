@@ -4,7 +4,8 @@
 
 > Mint your Idea as an NFT , Sell your Idea as an NFT and also Buy others Idea as an NFT. 
 
-
+## Inspiration
+> After taking building multiple cool projects and unique ideas, we were finding it difficult to find a platform which could tale our ideas and projects to the next level. Inspired by this, we came of a project to develop a platform which allows the BUIDLers to keep motivated in their projects.
  
 ## Features
 
