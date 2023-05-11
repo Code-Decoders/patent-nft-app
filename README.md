@@ -6,11 +6,6 @@
 
 ## Inspiration
 > After taking building multiple cool projects and unique ideas, we were finding it difficult to find a platform which could tale our ideas and projects to the next level. Inspired by this, we came of a project to develop a platform which allows the BUIDLers to keep motivated in their projects.
-
-
-Youtube Video Demo
-
-[![Youtube Video](https://img.youtube.com/vi/KYnxJ5afecY/sddefault.jpg)](https://youtu.be/KYnxJ5afecY)
  
 ## Features
 
@@ -26,6 +21,10 @@ Youtube Video Demo
 ## Demo
 
 Live Website (https://pat3nt.netlify.app/)
+
+Youtube Video Demo
+[![Youtube Video](https://img.youtube.com/vi/KYnxJ5afecY/sddefault.jpg)](https://youtu.be/KYnxJ5afecY)
+
 
 ## Deployed Smart Contracts
 
