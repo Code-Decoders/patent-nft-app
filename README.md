@@ -23,18 +23,19 @@
 Live Website (https://pat3nt.netlify.app/)
 
 Youtube Video Demo
+
 [![Youtube Video](https://img.youtube.com/vi/KYnxJ5afecY/sddefault.jpg)](https://youtu.be/KYnxJ5afecY)
-
-
-## Deployed Smart Contracts
-
-- [The Patent NFT Contract](https://shasta.tronscan.org/#/contract/TJU6x2uk4ubGPNdU2boUndCi1VehQYiLdU/code)
 
 ## Tech Stack
 
 **Frontend:** NEXT.JS, Unity, WebGL, web3.js
 
 **Backend:** Solidity, IPFS, TRON Blockchain
+
+## Deployed Smart Contracts
+
+- [The Patent NFT Contract](https://shasta.tronscan.org/#/contract/TJU6x2uk4ubGPNdU2boUndCi1VehQYiLdU/code)
+
 ## Roadmap
 
 - [ ]  Use AI for removing the spam ideas or dirty content.   
