@@ -23,15 +23,13 @@ Youtube Video Demo
 - See all NFT's according to the category.
 - See NFT according to the TokenID.
 
-## Deployed Smart Contracts
-
-- [The Patent NFT Contract](https://shasta.tronscan.org/#/contract/TJU6x2uk4ubGPNdU2boUndCi1VehQYiLdU/code)
-
 ## Demo
 
 Live Website (https://pat3nt.netlify.app/)
 
+## Deployed Smart Contracts
 
+- [The Patent NFT Contract](https://shasta.tronscan.org/#/contract/TJU6x2uk4ubGPNdU2boUndCi1VehQYiLdU/code)
 
 ## Tech Stack
 
